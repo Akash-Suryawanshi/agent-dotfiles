@@ -1,6 +1,6 @@
 # claude-dotfiles
 
-Portable Claude Code config — hooks, skills, slash commands, and user-scope CLAUDE.md.
+Portable Claude Code config — hooks, skills, slash commands, and general instructions for Claude Code (`CLAUDE.md`) and Codex (`AGENTS.md`).
 Drop this in `~/.claude/` (or symlink via `setup.sh`) and your Claude Code setup
 travels with you.
 
@@ -9,7 +9,8 @@ travels with you.
 ```
 .
 ├── settings.json          Claude Code user settings (model, plugins, hooks)
-├── CLAUDE.md              user-scope global guidance (test discipline, commit format)
+├── CLAUDE.md              general Claude Code guidance and visual response preferences
+├── AGENTS.md              matching general Codex guidance and visual response preferences
 ├── hooks/                 hook scripts wired by settings.json
 │   ├── html-response-format-reminder.json
 │   └── jira-close-on-worktree-remove.sh
@@ -54,6 +55,12 @@ git clone https://github.com/Akash-Suryawanshi/claude-dotfiles.git ~/.claude
 
 Either way, you'll need to log into Claude Code on each machine —
 the OAuth token regenerates and lives at `~/.claude/.credentials.json` (gitignored).
+
+## General response preferences
+
+`CLAUDE.md` and `AGENTS.md` share the same response rules: simple Georgia/Times typography on a light page, clear prose, and meaningful diagrams with explanations. These files contain reusable guidance only; keep project-specific knowledge in each project's own instructions.
+
+`setup.sh` installs the Claude Code files, including `CLAUDE.md` at `~/.claude/CLAUDE.md`. To apply the Codex counterpart globally, merge or copy this repository's `AGENTS.md` into `~/.codex/AGENTS.md`, preserving any existing guidance first. If Codex uses a custom home directory, use that directory instead. The setup script does not install Codex files automatically.
 
 ## Optional: enable the JIRA-close hook
 

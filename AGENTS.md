@@ -1,6 +1,6 @@
-# CLAUDE.md — Home Directory
+# AGENTS.md — Home Directory
 
-Global guidance for Claude Code across all projects.
+Global guidance for Codex across all projects.
 
 ## Global response instructions
 
@@ -31,9 +31,9 @@ Check rendering, links, and interactive controls where the available tools permi
 
 Keep only reusable, general instructions here. Project architecture, findings, plans, private context, machine addresses, and project-specific paths belong in the relevant project's instructions or local notes, not in these global GitHub files.
 
-## Auto-Maintain Project CLAUDE.md Files
+## Auto-Maintain Project AGENTS.md Files
 
-**Rule**: When you discover something that would have saved time if known earlier → add it to the project's CLAUDE.md immediately.
+**Rule**: When you discover something that would have saved time if known earlier → add it to the project's AGENTS.md immediately.
 
 ### Update Triggers
 - Non-obvious architecture requiring multiple files to understand
@@ -81,7 +81,7 @@ This convention ensures commits are automatically linked to tickets for tracking
 
 ## Writing tests — always invoke the `writing-tests` skill
 
-Before adding, reviewing, or trimming any test in any project, invoke the user-scope `writing-tests` skill (located at `~/.claude/skills/writing-tests/SKILL.md`). The skill enforces a necessity-first discipline: every test must declare WHY it exists (Regression / Critical contract / Acceptance criterion / Non-obvious correctness) via its docstring, and tests that don't fit one of the four categories should be deleted rather than written.
+Before adding, reviewing, or trimming any test in any project, invoke the user-scope `writing-tests` skill (located at `~/.codex/skills/writing-tests/SKILL.md`). The skill enforces a necessity-first discipline: every test must declare WHY it exists (Regression / Critical contract / Acceptance criterion / Non-obvious correctness) via its docstring, and tests that don't fit one of the four categories should be deleted rather than written.
 
 **This is a mandatory invocation, not a suggestion.** Test code without category-tagged docstrings is technical debt — the skill exists to prevent it from accumulating.
 
