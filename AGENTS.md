@@ -23,7 +23,7 @@ Every substantive explanation must include at least one meaningful diagram along
 
 Lead with the answer, then develop it in short, connected paragraphs. Explain unfamiliar terms as they appear and build from fundamentals when needed. Keep math, code, and technical identifiers precise. Use tables or lists when they make comparisons or sequences easier to understand; avoid unnecessary headings and repeated summaries.
 
-Use the `html-response` skill for substantive answers when available: write the page, serve it, verify the URL, and return the bare URL. Each response must be understandable on its own. Keep generated pages and server state outside the working repository unless asked to maintain them there. Reuse the active response viewer when suitable; discover paths and ports from the current environment rather than copying a previous project's settings.
+Use the `html-response` skill for substantive answers when available: write the page, serve it, verify the URL, and return the bare URL. Each response must be understandable on its own. Keep generated pages and server state outside the working repository unless asked to maintain them there. Always serve HTML responses on port **8081** and return the verified page URL on that port. Reuse an existing server on 8081 when it can serve the response; discover its serving directory from the current environment. Do not choose another port.
 
 Check rendering, links, and interactive controls where the available tools permit; describe any verification limits accurately. If HTML cannot be delivered, include an inline Mermaid or ASCII diagram with the explanation instead of silently falling back to text only. Brief acknowledgements, simple confirmations, and progress updates do not require a page or diagram.
 

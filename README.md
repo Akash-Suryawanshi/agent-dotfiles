@@ -89,3 +89,10 @@ git push
 ```
 
 On other machines: `git -C ~/.claude pull`.
+
+## HTML response port
+
+Always serve HTML responses on port **8081**. The global instructions, HTML
+response skill, server, and startup script use this port. If an existing viewer
+already serves 8081, reuse its static serving directory and verify the response
+URL instead of replacing the service or choosing another port.

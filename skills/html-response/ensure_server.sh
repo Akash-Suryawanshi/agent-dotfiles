@@ -2,7 +2,7 @@
 # html-response · idempotent server starter.
 #
 # Safe to call every turn:
-#   - if our server is already up on port 4747, exits 0 immediately
+#   - if our server is already up on port 8081, exits 0 immediately
 #   - if the port is held by SOMEONE ELSE, exits 2 with a clear error
 #   - otherwise spawns serve.py in the background (detached, nohup, dev/null'd)
 #     and waits for it to bind (up to ~4 seconds)
@@ -16,7 +16,7 @@ STATE_DIR="$SKILL_DIR/state"
 PID_FILE="$STATE_DIR/server.pid"
 LOG_FILE="$STATE_DIR/server.log"
 HOST="127.0.0.1"
-PORT="4747"
+PORT="8081"
 URL="http://$HOST:$PORT/"
 
 mkdir -p "$STATE_DIR/responses"
@@ -36,7 +36,7 @@ fi
 
 # Port held by something foreign?
 if lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
-  echo "html-response: port $PORT is held by a non-html-response process. Free it or pick another port in serve.py." >&2
+  echo "html-response: port $PORT is held by a non-html-response process. Reuse its static serving directory and verify the response URL; do not select another port." >&2
   lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >&2 || true
   exit 2
 fi

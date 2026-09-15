@@ -7,6 +7,10 @@ description: Use for every substantive response in this session — instead of r
 
 Every response becomes an **HTML page on a local HTTP server**, not terminal markdown. Akash is a mix of ML engineer, mathematician, coder, and artist; he reads a lot of Claude output and the terminal collapses everything into a linear stream. HTML buys side-by-side panels, real tables, syntax highlighting, KaTeX math, mermaid diagrams, and typographic hierarchy. **The page is the response medium, not a side artifact.**
 
+Always use port **8081** for response URLs. If another viewer already serves that
+port, reuse its static serving directory and verify the specific response URL.
+Do not stop an unrelated service or fall back to a different port.
+
 ## Workflow per turn
 
 ```
@@ -216,10 +220,10 @@ DEST="$HOME/.claude/skills/html-response/state/responses/$TS"
 
 # 2. Ensure server.
 ~/.claude/skills/html-response/ensure_server.sh
-# → prints http://127.0.0.1:4747/
+# → prints http://127.0.0.1:8081/
 
 # 3. Output (terminal): just the URL + 8-word gist.
-# Example: "HAB-19 shipped, PR #14 open → http://127.0.0.1:4747/"
+# Example: "HAB-19 shipped, PR #14 open → http://127.0.0.1:8081/"
 ```
 
 ## Fallback when the skill is unavailable
@@ -232,7 +236,7 @@ If you're in a session where this SKILL.md is NOT loaded (the tool list won't sh
 |---|---|
 | `SKILL.md` | This file. Loaded into Claude's context when the skill is invoked. |
 | `template.html` | Locked canonical template. Read it, copy it, fill four markers, write the copy. |
-| `serve.py` | Stdlib HTTP server on port 4747. Routes `/`, `/version`, `/index`, `/r-*.html`. |
+| `serve.py` | Stdlib HTTP server on port 8081. Routes `/`, `/version`, `/index`, `/r-*.html`. |
 | `ensure_server.sh` | Idempotent starter. Safe to call every turn. Prints the URL on success. |
 | `state/responses/` | Where response HTMLs live. Created at runtime. |
 | `state/server.pid`, `state/server.log` | Runtime — PID + access log. |
@@ -242,4 +246,4 @@ If you're in a session where this SKILL.md is NOT loaded (the tool list won't sh
 - **No styles at all** → CDN blocked or offline. Page still readable, just monochrome. Note the gap in terminal output; suggest Akash check his network or set up local copies of KaTeX/highlight.js if it's persistent.
 - **Math renders as raw `$..$`** → KaTeX auto-render didn't fire. Check that the `$` delimiters are paired and not inside `<code>` (which is excluded by default).
 - **mermaid block stays as text** → likely a syntax error in the diagram. Open browser devtools console to see the parser error.
-- **Server won't start** → another process on port 4747. `lsof -nP -iTCP:4747 -sTCP:LISTEN` will name the culprit.
+- **Server won't start** → another process on port 8081. `lsof -nP -iTCP:8081 -sTCP:LISTEN` will name the culprit.

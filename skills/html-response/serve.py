@@ -2,7 +2,7 @@
 """
 html-response · local server.
 
-Serves response HTML files from `state/responses/` on a fixed port (4747 by
+Serves response HTML files from `state/responses/` on a fixed port (8081 by
 default). Routing:
 
   GET /            -> latest response file (alias)
@@ -28,7 +28,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 HOST = "127.0.0.1"
-PORT = 4747
+PORT = 8081
 SKILL_ROOT = Path(__file__).resolve().parent
 STATE_DIR = SKILL_ROOT / "state"
 RESPONSES_DIR = STATE_DIR / "responses"
@@ -200,8 +200,8 @@ p{color:rgba(240,235,224,.62);max-width:48ch;margin:0 auto;}
 </style></head><body><div>
 <div class="eyebrow">html-response · ready</div>
 <h1>waiting for the first response</h1>
-<p>The server is up on port 4747. Claude will write the first response into <code>state/responses/</code> and this page will refresh.</p>
-<div class="hint">port 4747 · stdlib http.server</div>
+<p>The server is up on port 8081. Claude will write the first response into <code>state/responses/</code> and this page will refresh.</p>
+<div class="hint">port 8081 · stdlib http.server</div>
 <script>setInterval(()=>fetch('/version').then(r=>r.json()).then(d=>{if(d.latest)location.reload();}),3000);</script>
 </div></body></html>"""
     ).encode("utf-8")
