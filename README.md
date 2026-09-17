@@ -100,36 +100,5 @@ URL instead of replacing the service or choosing another port.
 
 ## Review-sized pull requests
 
-The shared instructions now target **100–200 changed hand-written lines** per
-PR and require splitting above **400**, unless a reviewer accepts a documented
-exception. Count additions plus deletions, including necessary tests and docs;
-report mechanical/generated bulk separately without hiding the raw diff.
-These numbers are our practical review budget, not a formal industry standard.
-
-```text
-Feature → independently testable slice → self-review + checks → small PR
-                       ↓ dependent next slice                 ↓ review/merge
-                  next branch based on first ← incremental diff only
-```
-
-A stack gives each dependent PR its own reviewable diff; multiple commits in one
-large PR do not. Keep behavior and its tests together and make every intermediate
-step usable. Full rules are in `AGENTS.md` and `CLAUDE.md`.
-
-Research checked September 17, 2026:
-
-- [Google](https://google.github.io/eng-practices/review/developer/small-cls.html)
-  prioritizes a single self-contained change, treats roughly 100 lines as often
-  reasonable and 1,000 as generally too large, and emphasizes reviewer context,
-  related tests, safe intermediate states, and stacked changes.
-- [GitHub](https://docs.github.com/en/pull-requests/concepts/helping-others-review-your-changes)
-  recommends focused PRs, clear context and reading guidance, self-review, and
-  relevant validation; it supplies no universal numeric cutoff.
-- [SmartBear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)
-  reports Cisco-based guidance of 200–400 lines per review session and recommends
-  breaks after about an hour. This is context-specific review evidence, not proof
-  of a precise limit for every GitHub PR or a guarantee of defect detection.
-- A [2022 empirical study](https://arxiv.org/abs/2203.05045) of 845,316 GitHub PRs
-  did not find the expected relationship between PR size and time-to-merge.
-  Our policy addresses comprehension and review workload; it does not promise
-  faster merging merely by reducing line counts.
+The limits in `AGENTS.md` and `CLAUDE.md` are local defaults, not an industry standard.
+Sources: [Google](https://google.github.io/eng-practices/review/developer/small-cls.html), [GitHub](https://docs.github.com/en/pull-requests/concepts/helping-others-review-your-changes), [SmartBear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/).

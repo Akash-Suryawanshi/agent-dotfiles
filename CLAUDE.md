@@ -94,38 +94,7 @@ Triggers (any of these in user request → invoke the skill first):
 
 ## Keep pull requests reviewable
 
-These are our review-budget defaults, not a universal industry standard.
-
-- Deliver one coherent, testable change per PR. Plan review-sized slices before
-  implementation; a feature or milestone may need several PRs.
-- Aim for **100–200 hand-written changed lines** (additions + deletions, including
-  tests and documentation). Treat **400 as the split threshold**: split larger
-  changes before marking them ready, unless the reviewer explicitly accepts an
-  explained exception. Complex concurrency, security, or unfamiliar code should
-  be smaller even below these limits.
-- Report raw diff size and any separate reviewable-size estimate. Identify
-  generated files, lockfiles, mechanical moves, or large deletions explicitly;
-  describe how they were checked. Never hide tests/docs, compress code, or remove
-  necessary checks just to fit a number. File count and conceptual breadth matter.
-- Keep a behavior change and its necessary regression/acceptance tests together.
-  Separate unrelated refactoring, formatting, dependencies, and documentation
-  projects. Keep documentation needed to understand the behavior with its code.
-- Use stacked PRs when changes depend on one another: base each PR on the previous
-  branch, link the dependency and review order, and measure its incremental diff
-  against that base. Each step must build and pass its relevant checks. Several
-  commits in one giant PR do not solve the review-size problem. After a base PR
-  merges, rebase/retarget descendants and recheck their incremental diffs, especially
-  after a squash merge.
-- Before requesting review, read the entire diff and run relevant validation.
-  Describe the problem, resulting behavior, test evidence, important limitations,
-  and where to start reading. Flag the specific decisions needing human judgment.
-- Keep incomplete work in draft. Respond to every substantive review concern,
-  distinguish required fixes from optional suggestions, and re-request review
-  after meaningful changes. The user reviews and merges; do not merge for them.
-- Aim for a focused review session of about 30 minutes; break after 60 minutes.
-  If the reviewer cannot explain the change, simplify or split it rather than
-  treating a green test run or a short diff as sufficient understanding.
-
-Basis: [Google's small-change guidance](https://google.github.io/eng-practices/review/developer/small-cls.html),
-[GitHub's review guidance](https://docs.github.com/en/pull-requests/concepts/helping-others-review-your-changes),
-and [SmartBear's review-session guidance](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/).
+- One coherent change with its tests/docs; aim for 100–200 changed lines, split above 400 unless the reviewer accepts an exception.
+- Count additions + deletions, including tests/docs; identify generated bulk without hiding it or compressing code to meet the budget.
+- Stack dependent PRs against the previous branch; keep each step testable and rebase/retarget descendants after merges.
+- Self-review and run relevant checks; describe behavior, validation, and limitations briefly. Keep unfinished work in draft; the user reviews and merges.
