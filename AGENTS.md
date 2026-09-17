@@ -113,7 +113,9 @@ These are our review-budget defaults, not a universal industry standard.
 - Use stacked PRs when changes depend on one another: base each PR on the previous
   branch, link the dependency and review order, and measure its incremental diff
   against that base. Each step must build and pass its relevant checks. Several
-  commits in one giant PR do not solve the review-size problem.
+  commits in one giant PR do not solve the review-size problem. After a base PR
+  merges, rebase/retarget descendants and recheck their incremental diffs, especially
+  after a squash merge.
 - Before requesting review, read the entire diff and run relevant validation.
   Describe the problem, resulting behavior, test evidence, important limitations,
   and where to start reading. Flag the specific decisions needing human judgment.
