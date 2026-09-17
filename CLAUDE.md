@@ -91,3 +91,10 @@ Triggers (any of these in user request → invoke the skill first):
 - "regression test for this fix", "make sure this doesn't break again"
 - Any bug fix (regression test goes in the same commit as the fix)
 - Any PR review that touches test files
+
+## Keep pull requests reviewable
+
+- One coherent change with its tests/docs; aim for 100–200 changed lines, split above 400 unless the reviewer accepts an exception.
+- Count additions + deletions, including tests/docs; identify generated bulk without hiding it or compressing code to meet the budget.
+- Stack dependent PRs against the previous branch; keep each step testable and rebase/retarget descendants after merges.
+- Self-review and run relevant checks; describe behavior, validation, and limitations briefly. Keep unfinished work in draft; the user reviews and merges.

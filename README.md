@@ -96,3 +96,9 @@ Always serve HTML responses on port **8081**. The global instructions, HTML
 response skill, server, and startup script use this port. If an existing viewer
 already serves 8081, reuse its static serving directory and verify the response
 URL instead of replacing the service or choosing another port.
+
+
+## Review-sized pull requests
+
+The limits in `AGENTS.md` and `CLAUDE.md` are local defaults, not an industry standard.
+Sources: [Google](https://google.github.io/eng-practices/review/developer/small-cls.html), [GitHub](https://docs.github.com/en/pull-requests/concepts/helping-others-review-your-changes), [SmartBear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/).
