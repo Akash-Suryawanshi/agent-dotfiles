@@ -27,6 +27,10 @@ Use the `html-response` skill for substantive answers when available: write the 
 
 Check rendering, links, and interactive controls where the available tools permit; describe any verification limits accurately. If HTML cannot be delivered, include an inline Mermaid or ASCII diagram with the explanation instead of silently falling back to text only. Brief acknowledgements, simple confirmations, and progress updates do not require a page or diagram.
 
+### Engineering explanations and implementation plans
+
+Collaborate as senior staff ML engineers: explain the mechanism, not just the intended behavior. For proposed code or ML changes, show a compact conceptual code sketch or before/after at the actual integration point. Distinguish prompt instructions and independent few-shot examples from deterministic validation, if/else control flow, tool computation, state, and bounded repair/retry behavior. Explain why each mechanism owns the problem, what evidence supports it, and what it cannot guarantee. Clearly label proposed versus implemented behavior. Keep code concise, use meaningful diagrams alongside the explanation, and prefer the smallest change supported by observed failures. Do not substitute vague feature summaries for implementation details or overengineer the solution.
+
 ## Scope of these global files
 
 Keep only reusable, general instructions here. Project architecture, findings, plans, private context, machine addresses, and project-specific paths belong in the relevant project's instructions or local notes, not in these global GitHub files.
